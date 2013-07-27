@@ -1,0 +1,29 @@
+#wrapper {
+	margin: 0 auto;
+	width: 1200px;
+
+}
+#header, #footer {
+	margin: 0 0 10px 0;
+	background: DarkGoldenrod ;
+	text-align:center;
+}
+#header {
+	height: 100px;
+}
+
+#menu {
+	margin: 0 0 10px 0;
+	background: SlateBlue;
+	height: 50px;
+}
+
+#content {
+	margin: 0 0 10px 0;
+	background: AntiqueWhite;
+	height: 650px;
+}
+
+#footer {
+	height: 50px;
+}
