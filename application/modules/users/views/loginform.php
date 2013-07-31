@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-echo validation_errors('');
+echo validation_errors("<p id='errors'>", "</p>");
 
 echo form_open('users/submit');
 

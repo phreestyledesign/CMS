@@ -7,12 +7,26 @@ function __construct() {
 parent::__construct();
 }
 
-function make_hash()
+function make_hash ($password)
 	{
-		$password ='test';
-		$safe_pass = sha1($password);
-		$new_pass = md5 ($safe_pass.=$password);
-		echo $new_pass;
+		$safe_pass = $this->mega_hash ($password);
+		return $safe_pass;
+	}
+	
+	function mega_hash ($password)
+	{
+		$new_pass = $password.="bla";
+		return $new_pass;
+	}
+
+	function make_sure_is_admin ()
+	{
+		$user_id = $this->session->userdata('user_id');
+			if (!is_numeric($user_id))
+			{
+				redirect(base_url());
+			}
+		
 	}
 	
 }

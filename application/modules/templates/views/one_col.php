@@ -18,7 +18,7 @@
 	<div id="wrapper">
 		<div id="header">
 			<h1>
-				<?php include "assets/includes/header.php"; ?>
+				<a href=""><?php include "assets/includes/header.php"; ?></a>
 			</h1>
 		</div><!-- end header -->
 		<div id="menu">
@@ -48,7 +48,9 @@
 
 		</div><!-- end content -->
 		 <div id="footer">
+		 	<p>
 			<?php include "assets/includes/footer.php"; ?>
+			</p>
 		 </div><!-- end footer -->
 	</div><!-- end wrapper -->
 

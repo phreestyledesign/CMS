@@ -15,7 +15,11 @@
 
 <body>
 <div id="wrapper">
-<div id="header"><h1>Admin Panel</h1></div><!-- end header -->
+<div id="header">
+			<h1>
+				<a href="index.php/users/login"><?php include "assets/includes/header.php"; ?></a>
+			</h1>
+		</div><!-- end header -->
 <div id="menu">Menu here</div><!-- end menu -->
 
 <div id="admin_panel">

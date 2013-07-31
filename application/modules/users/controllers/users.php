@@ -1,19 +1,69 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Users extends MX_Controller
-{
-
-function __construct() {
-parent::__construct();
-}
-
-function login()
+class Users extends MX_Controller {
+	
+	function login()
 	{
 		$data['view_file'] = "loginform";
 		$this->load->module('templates');
 		$this->templates->one_col($data);
 	}
 	
+	function _in_you_go ($username)
+	{
+		// give user a session variable	
+		
+		$query = $this->get_where_custom('username', $username);
+		foreach($query->result() as $row)
+		{
+			$user_id = $row->id;
+		}
+		
+		$this->session->set_userdata('user_id', $user_id);
+		
+		redirect('dashboard/home');
+		
+	}
+	
+	function submit()
+	{
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('username', 'Username', 'required|max_length[30]|xss_clean');
+		$this->form_validation->set_rules('pword', 'Password', 'required|max_length[30]|xss_clean|callback_pword_check');
+		
+		if ($this->form_validation->run($this) == FALSE)
+		{
+			$this->login();
+		}
+		else
+		{
+			$username = $this->input->post('username', TRUE);
+			$this->_in_you_go($username);
+		}
+	}
+
+	function pword_check($pword)
+	{
+		
+		$username = $this->input->post('username', TRUE);
+		
+		$pword = Modules::run('security/make_hash', $pword);
+		
+		$this->load->model('mdl_users');
+		$result = $this->mdl_users->pword_check($username, $pword);
+		
+		if ($result == FALSE)
+		{
+			$this->form_validation->set_message('pword_check', 'You failed to enter the correct username and/or password');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
+	}
+
 
 
 function get($order_by){
@@ -72,5 +122,6 @@ $this->load->model('mdl_users');
 $query = $this->mdl_users->_custom_query($mysql_query);
 return $query;
 }
+
 
 }
