@@ -1,26 +1,28 @@
-
-* {
-margin:0;
-padding:0;
-font: Verdana, sans-serif;
-
+* 
+{
+	margin:0;
+	padding:0;
+	font: Verdana, sans-serif;
 }
 
 
-body {
-	background: Teal;
+body 
+{
+	background: grey;
 }
 
-@font-face {
-  font-family: "phreestyle";
-  src: url(../font/MAINBRG_.TTF) format("truetype");
+@font-face 
+{
+	font-family: "phreestyle";
+  	src: url(../fonts/Beware.ttf) format("truetype");
   }
 	
 /*
 image borders == none
 */
-img {
-   border: 0;
+img 
+{
+	border: 0;
 }
 
 /*
@@ -28,37 +30,43 @@ default link styles
 */
 a,
 a:link 
-a:active {
+a:active 
+{
    text-decoration: underline;
    background-color: inherit; 
-   color: LemonChiffon; 
+   color: black; 
 }
 
-a:visited {
+a:visited 
+{
    text-decoration: underline;
    background-color: inherit;
-  color: LemonChiffon;                
+  color: black;                
 }
 
 /* remove underline on hover and change background and color */
-a:hover {
+a:hover 
+{
    text-decoration: none;
    background-color: #999900;
    color: #E92;
 }
 
 /* Global floats */
-.left {
+.left 
+{
    float:left;
 	 margin: 0 10px 0 0;
 }
 
-.right {
+.right 
+{
    float:right;
 	 margin: 0 0 0 10px;
 }
 
-.clear {
+.clear 
+{
 clear:both;
 }
 

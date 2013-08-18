@@ -1,32 +1,33 @@
 body {
-	background: red;
-}
-#wrapper {
-	margin: 0 auto;
-	width: 1200px;
-
+	background: rosybrown;
 }
 
-#header {
-	margin: 0 0 10px 0;
-	background: yellow;
-	height: 100px;
+#content {
+	
 }
 
-#menu {
-	margin: 0 0 10px 0;
-	background: purple;
-	height: 50px;
+table#manage {
+	width:50%;
+	border: 1px solid black;
+	border-collapse: collapse;
+
+}
+table#manage tr{
+	border-bottom: 1px dotted black;
+	padding: 5px 0;
 }
 
-#admin_panel {
-	margin: 0 0 10px 0;
-	background: white;
-	height: 650px;
+table#manage th, table#manage td {
+	width: 25%;
+	padding: 5px 0;
+	
 }
 
-#footer {
-	margin: 0 0 10px 0;
-	background: yellow;
-	height: 50px;
+table#manage th {
+	background:orange;
+	text-align: left;
 }
+
+
+
+

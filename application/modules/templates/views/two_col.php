@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
 <head>
-<base href="http://192.168.1.104/codeigniter/" />
+<base href="http://192.168.1.104/cms/" />
 
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="author" content="PhreestyleDESIGN" />
 <meta name="Generator" content="&copy; 2010 - Phreestyledesign http://phreestyledesign.com" />
 
+<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="assets/css/twoColumn.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="assets/css/form.css" media="screen" />
+
 
 <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
 
@@ -20,32 +21,48 @@
 <div id="wrapper">
 
  <div id="header">
-	<h1>Two Column Layout</h1>
-</div>
-
-<div id="navbar">
-	<ul>
-<li><a href="index.php/tasks">home</a></li>
-<li>Horizontal Menu here</li>
-</ul>
-</div>
+			<h1>
+				<a href=""><?php include "assets/includes/header.php"; ?></a>
+			</h1>
+		</div><!-- end header -->
+		<div id="navcontainer">
+			<?php include "assets/includes/menu.php"; ?>
+		</div><!-- end navcontainer -->
 
 <div id="sidebar">
 <ul>
-<li>links here</li>
+<li>Sidebar menu here</li>
 </ul>
-</div>
+</div><!-- end sidebar -->
 
 
 <div id="content">
  <?php 
+				echo "CONTENT IN HERE";
+				if (!isset($view_file))
+				{
+					$view_file = "";
+				}
+				
+				if (!isset($module))
+				{
+					$module = $this->uri->segment(1);
+				}
+				
+				if (($view_file!="") && ($module!=""))
+				{
+					$path = $module."/".$view_file;
+					$this->load->view($path);
+				}
 
-	echo "Content here";
+			 ?>
+</div><!-- end content -->
+ <div id="footer">
+		 	<p>
+			<?php include "assets/includes/footer.php"; ?>
+			</p>
+		 </div><!-- end footer -->
 
-  ?>
-</div>
-<div id="footer"><a href="http://phreestyledesign.com/">PhreestyleDESIGN</a></div>
-
-</div>
+</div><!-- end wrapper -->
 </body>
 </html>

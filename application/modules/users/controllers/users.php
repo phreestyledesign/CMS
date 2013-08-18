@@ -48,7 +48,7 @@ class Users extends MX_Controller {
 		
 		$username = $this->input->post('username', TRUE);
 		
-		$pword = Modules::run('security/make_hash', $pword);
+		$pword = Modules::run('site_security/make_hash', $pword);
 		
 		$this->load->model('mdl_users');
 		$result = $this->mdl_users->pword_check($username, $pword);
